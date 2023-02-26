@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Registration</title>
+<style>
+Body {
+  font-family: Calibri, Helvetica, sans-serif;
+  background: linear-gradient(to bottom, #3333cc 0%, #ff99cc 100%);
+}
+button {
+       background-color: #3333cc;
+       width: 25%;
+        color: white;
+        padding: 15px;
+        margin: 10px 0px;
+        border: none;
+        cursor: pointer;
+         }
+ form {
+        border: 3px solid #f1f1f1;
+    }
+ input[type=text], input[type=password], input[type=submit], input[type=email], button[type=submit] {
+        width: 100%;
+        margin: 8px 0;
+        padding: 12px 20px;
+        display: inline-block;
+        border: 2px solid green;
+        box-sizing: border-box;
+    }
+ button:hover {
+        opacity: 0.7;
+    }
+  .cancelbtn {
+        width: auto;
+        padding: 10px 18px;
+        margin: 10px 5px;
+    }
+
+
+ .container {
+        padding: 50px;
+        background-color: lightblue;
+    }
+</style>
+</head>
+<body>
+    <h1 style="color:white;text-align:center">Registration</h1>
+    <form action="register" method="post">
+             {% csrf_token %}
+        <div class="container">
+            <label>Username : </label>
+            <input type="text" placeholder="Enter Username" name="username" required>
+            <label>Firstname : </label>
+            <input type="text" placeholder="Enter Firstname" name="first_name" required>
+            <label>Lastname : </label>
+            <input type="text" placeholder="Enter Lastname" name="last_name" required>
+            <label>E-mail : </label>
+            <input type="email" placeholder="Enter Email" name="email" required>
+            <label>Password : </label>
+            <input type="password" placeholder="Enter Password" name="password" required>
+            <label>Confirm Password : </label>
+            <input type="password" placeholder="Confirm your password" name="password1" required>
+            <button type="submit">Register</button>
+<!--            <input type="submit">-->
+
+            <button type="submit" class="cancelbtn"> Cancel</button>
+
+        </div>
+    </form>
+    {% for msg in messages %}
+    <h2>{{msg}}</h2>
+    {% endfor %}
+
+</body>
+</html>
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>test register</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h2>Registration</h2>-->
+<!--<form action="register" method="post">-->
+<!--    {% csrf_token %}-->
+<!--    <input type="text" name="username" placeholder="Enter your User Name"><br>-->
+<!--       <input type="text" name="first_name" placeholder="Enter your First Name"><br>-->
+<!--       <input type="text" name="last_name" placeholder="Enter your Last Name"><br>-->
+<!--       <input type="email" name="email" placeholder="Enter your Email"><br>-->
+<!--       <input type="password" name="password" placeholder="Enter your Password"><br>-->
+<!--    <input type="password" name="password1" placeholder="Confirm your Password"><br>-->
+<!--    <input type="submit">-->
+
+<!--</form>-->
+<!--{% for msg in messages %}-->
+<!--<h2>{{msg}}</h2>-->
+<!--{% endfor %}-->
+<!--</body>-->
+<!--</html>-->
